@@ -1,0 +1,23 @@
+name: Rebuild dashboard
+on:
+  schedule:
+    - cron: '30 * * * *'   # hourly at :30 past
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Placeholder — rebuild script lands in next pass
+        run: |
+          echo "TODO: regenerate docs/index.html by querying SHA/dates from each project repo."
+          echo "For now the seed HTML committed by paul-pc is the live page."
+      - name: Commit if changed
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "claudebridge-rebuild"
+          git add -A
+          git diff --quiet --cached || git commit -m "chore(rebuild): refresh dashboard"
+          git push || true

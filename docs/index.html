@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   :root {
+    color-scheme: light;
     --ff-bg:#f6f7f9; --ff-surface:#ffffff; --ff-surface-alt:#f0f2f5;
     --ff-border:#e1e4e8; --ff-border-strong:#c8ccd3;
     --ff-text:#1f2328; --ff-text-muted:#57606a; --ff-text-subtle:#8c959f;
@@ -49,197 +50,270 @@
   .grid.cols-4{grid-template-columns:repeat(4,1fr)}
   .grid.cols-3{grid-template-columns:repeat(3,1fr)}
   .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-  @media (max-width:1200px){.grid.cols-5{grid-template-columns:repeat(3,1fr)}}
-  @media (max-width:1100px){.grid.cols-4{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:700px){.grid.cols-5,.grid.cols-4,.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
-  .tile{background:var(--ff-surface);border:1px solid var(--ff-border);border-radius:var(--ff-radius-md);padding:var(--ff-s-4)}
-  .tile .rank{font-size:11px;color:var(--ff-text-subtle);text-transform:uppercase;letter-spacing:.5px}
-  .tile .label{font-size:12px;color:var(--ff-text-muted);text-transform:uppercase;letter-spacing:.5px}
-  .tile .value{font-size:20px;font-weight:600;margin-top:4px}
-  .tile .sub{font-size:12px;color:var(--ff-text-subtle);margin-top:4px}
-  .tile.proj{border-top:3px solid var(--ff-brand)}
-  .tile.proj.p0{border-top-color:var(--ff-danger)}
-  .tile.proj.p1{border-top-color:var(--ff-warning)}
-  .tile.proj.p2{border-top-color:var(--ff-brand)}
-  .tile.proj.p3{border-top-color:var(--ff-text-subtle)}
-  .chip{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;font-weight:500;line-height:1.4}
+  @media (max-width:1100px){.grid.cols-5,.grid.cols-4{grid-template-columns:repeat(2,1fr)}.grid.cols-3{grid-template-columns:1fr}}
+  .tile{background:var(--ff-surface);border:1px solid var(--ff-border);border-radius:var(--ff-radius-md);padding:var(--ff-s-3) var(--ff-s-4)}
+  .tile.proj{position:relative}
+  .tile.proj.p0{border-color:var(--ff-danger-soft)}
+  .tile.proj .rank{font-size:11px;color:var(--ff-text-subtle);text-transform:uppercase;letter-spacing:.4px}
+  .tile.proj .value{font-size:15px;font-weight:600;margin-top:2px}
+  .tile.proj .sub{color:var(--ff-text-muted);margin-top:2px;font-size:12px}
+  .chip{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--ff-surface-alt);color:var(--ff-text-muted);margin-right:4px;margin-bottom:2px;white-space:nowrap}
   .chip.success{background:var(--ff-success-soft);color:var(--ff-success)}
   .chip.warning{background:var(--ff-warning-soft);color:var(--ff-warning)}
   .chip.danger{background:var(--ff-danger-soft);color:var(--ff-danger)}
   .chip.info{background:var(--ff-info-soft);color:var(--ff-brand)}
   .chip.purple{background:var(--ff-purple-soft);color:var(--ff-purple)}
-  .chip.muted{background:var(--ff-surface-alt);color:var(--ff-text-muted)}
+  .chip.muted{background:var(--ff-surface-alt);color:var(--ff-text-subtle)}
   table{width:100%;border-collapse:collapse;font-size:13px}
-  thead th{text-align:left;font-weight:500;color:var(--ff-text-muted);border-bottom:1px solid var(--ff-border);padding:var(--ff-s-2) var(--ff-s-3);background:var(--ff-surface-alt);font-size:12px}
-  tbody td{padding:var(--ff-s-2) var(--ff-s-3);border-bottom:1px solid var(--ff-border);vertical-align:top}
-  tbody tr:last-child td{border-bottom:0}
-  tbody tr:hover{background:var(--ff-brand-soft)}
+  table thead th{text-align:left;font-weight:600;color:var(--ff-text-muted);padding:var(--ff-s-2) var(--ff-s-3);border-bottom:1px solid var(--ff-border)}
+  table tbody td{padding:var(--ff-s-2) var(--ff-s-3);border-bottom:1px solid var(--ff-border);vertical-align:top}
+  table tbody tr:last-child td{border-bottom:none}
+  .mono{font-family:var(--ff-font-mono);font-size:12px;color:var(--ff-text-muted)}
+  .subsection{display:grid;gap:var(--ff-s-2);margin-top:var(--ff-s-2)}
+  .field{display:grid;grid-template-columns:140px 1fr;gap:var(--ff-s-3);align-items:start}
+  .field .k{color:var(--ff-text-muted);font-weight:500;font-size:13px}
+  .field .v{color:var(--ff-text);font-size:13px}
   a{color:var(--ff-brand);text-decoration:none}
   a:hover{text-decoration:underline}
-  .mono{font-family:var(--ff-font-mono);font-size:12px}
-  .muted{color:var(--ff-text-muted)}
-  ul.clean{list-style:none;padding:0;margin:0}
-  ul.clean li{padding:var(--ff-s-2) 0;border-bottom:1px solid var(--ff-border)}
-  ul.clean li:last-child{border-bottom:0}
-  ol.steps{padding-left:var(--ff-s-5);margin:0}
-  ol.steps li{margin-bottom:var(--ff-s-3)}
-  .footer-note{color:var(--ff-text-subtle);font-size:12px;margin-top:var(--ff-s-6)}
-  .subsection{padding-top:var(--ff-s-3);border-top:1px dashed var(--ff-border);margin-top:var(--ff-s-3)}
-  .subsection:first-child{border-top:0;padding-top:0;margin-top:0}
-  .field{display:grid;grid-template-columns:140px 1fr;gap:var(--ff-s-3);font-size:13px;margin-bottom:4px}
-  .field .k{color:var(--ff-text-muted)}
-  .field .v{color:var(--ff-text)}
+  .timeline{display:grid;grid-template-columns:90px 1fr;gap:var(--ff-s-3);padding:var(--ff-s-2) 0;border-bottom:1px solid var(--ff-border)}
+  .timeline:last-child{border-bottom:none}
+  .timeline .t{font-family:var(--ff-font-mono);color:var(--ff-text-subtle);font-size:12px}
+  .timeline .e{font-size:13px}
+  .kpi{display:flex;flex-direction:column;gap:2px;padding:var(--ff-s-3) var(--ff-s-4);background:var(--ff-surface);border:1px solid var(--ff-border);border-radius:var(--ff-radius-md)}
+  .kpi .label{font-size:11px;color:var(--ff-text-subtle);text-transform:uppercase;letter-spacing:.4px}
+  .kpi .num{font-size:22px;font-weight:600;color:var(--ff-text)}
+  .kpi .sub{font-size:12px;color:var(--ff-text-muted)}
 </style>
 </head>
 <body>
-
 <header class="app">
-  <div class="brand">Portfolio Control Centre — paul-pc (core controller)</div>
-  <div class="meta">Snapshot · 2026-05-12T11:40Z · nine workstreams</div>
+  <div class="brand">Portfolio Control Centre &middot; paul-pc</div>
+  <div class="meta">refreshed 2026-05-12T15:30Z &middot; v0.2</div>
 </header>
-
 <main>
-  <h1>One place. Nine workstreams. State, owner, next move, blockers — at a glance.</h1>
-  <p class="lede">PPC is Paul's 2nd-in-command and core controller for the entire portfolio (promotion logged 2026-05-12). Build owners differ per project; PPC owns coordination, scheduling, status cadence, GitHub, and any work without another owner. Bridge plumbing health and today's outbound thread live in the same view, so a single glance answers <em>what's running, what's stuck, what's mine</em>.</p>
+
+  <h1>Where everything stands today</h1>
+  <p class="lede">PPC's single page of the truth. Refreshed mid-afternoon UK on 2026-05-12 after the bridge processed ff-151's portfolio + connectors directive and the symmetric portfolio-connectors-noted ack. Cloud-hosted from <span class="mono">Gonzo8285/claudebridge-dashboard</span>; mirrors <span class="mono">G:\My Drive\ClaudeBridge\dashboard\index.html</span>.</p>
 
   <section class="card">
-    <h2>Health checks <span class="badge">today</span></h2>
+    <h2>Pulse <span class="badge">live state · 2026-05-12T15:30Z</span></h2>
     <div class="grid cols-4">
-      <div class="tile">
-        <div class="label">GitHub PAT</div>
-        <div class="value">Verified <span class="chip success">live</span></div>
-        <div class="sub">Auth as Gonzo8285 · user-level repo:create confirmed via probe-then-delete · rotate after first batch</div>
-      </div>
-      <div class="tile">
-        <div class="label">ClaudeBridge poll</div>
-        <div class="value">Firing <span class="chip success">2m</span></div>
-        <div class="sub">Transport healthy · 1 unprocessed inbound (151 ack)</div>
-      </div>
-      <div class="tile">
-        <div class="label">ff-151 liveness</div>
-        <div class="value">Recovering <span class="chip warning">10:03Z</span></div>
-        <div class="sub">Snapshot refreshed after 25h staleness · 3 of 4 scheduled tasks still missing on .151</div>
-      </div>
-      <div class="tile">
-        <div class="label">Heartbeats</div>
-        <div class="value">Rationalising <span class="chip info">3 pulses</span></div>
-        <div class="sub">pulse-build · pulse-gamedev · pulse-housekeep — replaces 5 tasks</div>
-      </div>
+      <div class="kpi"><span class="label">Workstreams</span><span class="num">9</span><span class="sub">priority spine intact</span></div>
+      <div class="kpi"><span class="label">Bridge inbox (from-151)</span><span class="num">8</span><span class="sub">all archived &middot; originals zombie on drive-sync gap</span></div>
+      <div class="kpi"><span class="label">Bridge outbox (from-paul-pc)</span><span class="num">3</span><span class="sub">latest: portfolio-connectors-ack 14:30Z</span></div>
+      <div class="kpi"><span class="label">P0.1 (GUI fix)</span><span class="num">BLOCKED</span><span class="sub">on .151 source-tree mount</span></div>
     </div>
   </section>
 
   <section class="card">
-    <h2>Portfolio at a glance <span class="badge">9 workstreams · priority order</span></h2>
+    <h2>Today's bridge traffic <span class="badge">UTC</span></h2>
+    <div class="timeline"><span class="t">10:03Z</span><span class="e"><span class="chip info">ff-151 → paul-pc</span> <span class="mono">gui-priority-v1-1-ack</span> &mdash; DESIGN-SPEC v1.1 receipt confirmed; source-tree blocker still open.</span></div>
+    <div class="timeline"><span class="t">10:30Z</span><span class="e"><span class="chip purple">paul-pc → ff-151</span> <span class="mono">gui-priority-v1-1</span> &mdash; DESIGN-SPEC v1.1 issued.</span></div>
+    <div class="timeline"><span class="t">11:45Z</span><span class="e"><span class="chip purple">paul-pc → ff-151</span> <span class="mono">ack-v1-1-and-controller-promotion</span> &mdash; PPC controller promotion confirmed both sides.</span></div>
+    <div class="timeline"><span class="t">13:00Z</span><span class="e"><span class="chip info">ff-151 → paul-pc</span> <span class="mono">portfolio-and-connectors-directive</span> &mdash; new directive from foreground session signed in as <em>lynsey@jsmglasgow.co.uk</em>; §7 schedule confirmed live; PROJECTS-AND-RESOURCES + API-CONNECTORS docs landing.</span></div>
+    <div class="timeline"><span class="t">14:30Z</span><span class="e"><span class="chip purple">paul-pc → ff-151</span> <span class="mono">portfolio-connectors-ack</span> &mdash; translation accepted; <strong>identity flag</strong> raised on Lynsey; parallelism caveat (no implementation until P0.1 ships); PPC-side workstream detail supplied for the manifest; Open API stays inside <span class="mono">Gonzo8285/fastforward</span>.</span></div>
+    <div class="timeline"><span class="t">15:00Z</span><span class="e"><span class="chip info">ff-151 → paul-pc</span> <span class="mono">portfolio-connectors-noted</span> &mdash; guardrails accepted; one flag back on a TypeScript Connector sketch in API-CONNECTORS §1.</span></div>
+  </section>
+
+  <section class="card">
+    <h2>Action queue (PPC) <span class="badge">core controller &middot; act-then-report</span></h2>
+    <table>
+      <thead><tr><th>#</th><th>Action</th><th>Output</th><th>State</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Refresh this dashboard with mid-afternoon state</td><td class="mono">dashboard/index.html (v0.2)</td><td><span class="chip success">done</span></td></tr>
+        <tr><td>2</td><td>Reply to 151's gui-priority-v1-1-ack + archive inbound</td><td class="mono">comms/from-paul-pc/ + comms/archive/</td><td><span class="chip success">done</span></td></tr>
+        <tr><td>3</td><td>Reply to 151's portfolio-and-connectors-directive (Lynsey flag, parallelism, PPC workstream detail)</td><td class="mono">comms/from-paul-pc/2026-05-12T143000Z_paul-pc_portfolio-connectors-ack.md</td><td><span class="chip success">done</span></td></tr>
+        <tr><td>4</td><td>Push dashboard to <span class="mono">Gonzo8285/claudebridge-dashboard</span> &middot; enable Pages</td><td>Cloud URL (Pages-hosted)</td><td><span class="chip info">in progress</span></td></tr>
+        <tr><td>5</td><td>Refresh paul-pc status snapshot for today</td><td class="mono">shared/status/paul-pc.md</td><td><span class="chip info">next</span></td></tr>
+        <tr><td>6</td><td>Bootstrap remaining GitHub repos: claudebridge (specs/comms), fastforward, rtk-sharepoint, ml2-consulting-website</td><td>Gonzo8285/* &middot; private &middot; README + .gitignore</td><td><span class="chip info">queued</span></td></tr>
+        <tr><td>7</td><td>Write SharePoint cleanup .ps1 (archive dated reports, not delete)</td><td class="mono">Projects/Sharepoint/RTK_Cleanup_Archive_Reports.ps1</td><td><span class="chip info">queued</span></td></tr>
+        <tr><td>8</td><td>Rationalise scheduled tasks to three pulses; disable dormant</td><td>Cowork Scheduled folder &middot; SKILL.md replacements</td><td><span class="chip info">queued</span></td></tr>
+        <tr><td>9</td><td>Refresh Gallowfell read-only mirror; write B2 review note</td><td class="mono">projects/gaming-app/</td><td><span class="chip info">queued</span></td></tr>
+        <tr><td>10</td><td>Amend <span class="mono">shared/PROJECTS-AND-RESOURCES.md</span> with PPC-side workstream detail (§2.3 onward)</td><td>Bridge manifest v0.2</td><td><span class="chip info">queued</span></td></tr>
+        <tr><td>11</td><td>Confirm to Paul: Lynsey identity question (authorised proxy or not?)</td><td>Direct ask in chat / status post</td><td><span class="chip warning">awaiting Paul</span></td></tr>
+        <tr><td>12</td><td>Confirm to Paul: which connector providers we hold creds for (Sage, M365, TMS choice)</td><td>Direct ask in chat / status post</td><td><span class="chip warning">awaiting Paul</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Portfolio at a glance <span class="badge">9 workstreams &middot; priority order</span></h2>
     <div class="grid cols-5">
       <div class="tile proj p0">
-        <div class="rank">1 · highest priority</div>
+        <div class="rank">1 &middot; highest priority</div>
         <div class="value">FastForward</div>
-        <div class="sub">build: ff-151 · design/review: PPC</div>
-        <div style="margin-top:8px"><span class="chip danger">P0.1 GUI fix</span> <span class="chip warning">source-access blocker</span></div>
+        <div class="sub">build: ff-151 &middot; design/review: PPC</div>
+        <div style="margin-top:8px"><span class="chip danger">P0.1 GUI</span> <span class="chip warning">source-mount blocker</span> <span class="chip info">connector pack scoped</span></div>
       </div>
       <div class="tile proj p1">
-        <div class="rank">2 · primary resource use</div>
+        <div class="rank">2 &middot; primary resource use</div>
         <div class="value">Gallowfell</div>
-        <div class="sub">build: Claude Code · plan: PPC</div>
+        <div class="sub">build: Claude Code &middot; plan: PPC</div>
         <div style="margin-top:8px"><span class="chip success">heartbeat live</span> <span class="chip info">Phase 3 / B2</span></div>
       </div>
       <div class="tile proj p1">
-        <div class="rank">3 · in-flight (corrected)</div>
+        <div class="rank">3 &middot; in-flight</div>
         <div class="value">RTK SharePoint</div>
         <div class="sub">owner: PPC</div>
         <div style="margin-top:8px"><span class="chip info">16 sites provisioned</span> <span class="chip warning">SDP wiring stuck</span> <span class="chip warning">files cluttered</span></div>
       </div>
       <div class="tile proj p2">
-        <div class="rank">4 · static site ready</div>
+        <div class="rank">4 &middot; static site ready</div>
         <div class="value">ML2 Consulting</div>
-        <div class="sub">owner: PPC · personal brand</div>
+        <div class="sub">owner: PPC &middot; personal brand</div>
         <div style="margin-top:8px"><span class="chip info">site exists</span> <span class="chip muted">not deployed</span></div>
       </div>
       <div class="tile proj p3">
-        <div class="rank">5 · chip-away</div>
+        <div class="rank">5 &middot; chip-away</div>
         <div class="value">Dropship</div>
-        <div class="sub">owner: PPC · personal</div>
+        <div class="sub">owner: PPC &middot; personal</div>
         <div style="margin-top:8px"><span class="chip muted">scope TBD</span></div>
       </div>
       <div class="tile proj p3">
-        <div class="rank">6 · creative</div>
+        <div class="rank">6 &middot; creative</div>
         <div class="value">Hollow Kin</div>
         <div class="sub">Warhammer fan codex</div>
         <div style="margin-top:8px"><span class="chip info">codex + 3D viewer</span></div>
       </div>
       <div class="tile proj p3">
-        <div class="rank">7 · sandbox</div>
+        <div class="rank">7 &middot; sandbox</div>
         <div class="value">Nestwell</div>
         <div class="sub">stocks/trading prototype</div>
         <div style="margin-top:8px"><span class="chip muted">scope TBD</span></div>
       </div>
       <div class="tile proj p3">
-        <div class="rank">8 · operational data</div>
-        <div class="value">Rate cards · Bedding</div>
+        <div class="rank">8 &middot; operational data</div>
+        <div class="value">Rate cards &middot; Bedding</div>
         <div class="sub">likely FF-adjacent data</div>
         <div style="margin-top:8px"><span class="chip muted">await classification</span></div>
       </div>
       <div class="tile proj p2">
-        <div class="rank">9 · spine</div>
+        <div class="rank">9 &middot; spine</div>
         <div class="value">ClaudeBridge</div>
         <div class="sub">comms + portfolio plumbing</div>
-        <div style="margin-top:8px"><span class="chip success">running</span></div>
+        <div style="margin-top:8px"><span class="chip success">running</span> <span class="chip warning">drive-sync gap</span></div>
       </div>
     </div>
-  </section>
-
-  <section class="card">
-    <h2>Today's action queue (PPC, executing) <span class="badge">core controller</span></h2>
-    <table>
-      <thead><tr><th>#</th><th>Action</th><th>Output</th><th>State</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>Refresh this dashboard with nine-project picture</td><td class="mono">Claude chatting with claude/ClaudeBridge-Dashboard.html</td><td><span class="chip success">done</span></td></tr>
-        <tr><td>2</td><td>Reply to 151's gui-priority-v1-1-ack + archive inbound</td><td class="mono">comms/from-paul-pc/ + comms/archive/</td><td><span class="chip info">next</span></td></tr>
-        <tr><td>3</td><td>Refresh paul-pc status snapshot for today</td><td class="mono">shared/status/paul-pc.md</td><td><span class="chip info">next</span></td></tr>
-        <tr><td>4</td><td>Bootstrap GitHub repos: claudebridge, claudebridge-dashboard, fastforward, rtk-sharepoint, ml2-consulting-website</td><td>Gonzo8285/* · private · README + .gitignore + initial commit</td><td><span class="chip info">queued</span></td></tr>
-        <tr><td>5</td><td>Push existing content to repos (where files exist)</td><td>ClaudeBridge tree · ML2 website · SP artefacts</td><td><span class="chip info">queued</span></td></tr>
-        <tr><td>6</td><td>Write SharePoint cleanup .ps1 (archive dated reports, not delete)</td><td class="mono">Projects/Sharepoint/RTK_Cleanup_Archive_Reports.ps1</td><td><span class="chip info">queued</span></td></tr>
-        <tr><td>7</td><td>Rationalise scheduled tasks to three pulses; disable dormant</td><td>Cowork Scheduled folder · SKILL.md replacements</td><td><span class="chip info">queued</span></td></tr>
-        <tr><td>8</td><td>Wire claudebridge-dashboard Pages + rebuild Action</td><td>Gonzo8285/claudebridge-dashboard · Pages from /docs</td><td><span class="chip info">queued</span></td></tr>
-        <tr><td>9</td><td>Repoint Desktop shortcut at Pages URL once live</td><td class="mono">OneDrive/Desktop/Portfolio Control Centre.url</td><td><span class="chip info">queued</span></td></tr>
-      </tbody>
-    </table>
   </section>
 
   <section class="card project p0">
     <h2>1. FastForward <span class="priority p0">P0</span> <span class="chip info">build: ff-151</span> <span class="chip purple">design/review: PPC</span></h2>
     <div class="subsection">
-      <div class="field"><span class="k">Status</span><span class="v">DESIGN-SPEC v1.1 issued today; 151 acknowledged 10:03Z. P0.1 GUI rework blocked on source-tree access from 151's sandbox.</span></div>
-      <div class="field"><span class="k">Current focus</span><span class="v">Commit #1: blue-bar overlap on Dashboard + Diary. Commits 2–4 (design tokens, four-shell refactor, side-nav regroup) ready behind it.</span></div>
-      <div class="field"><span class="k">Next action</span><span class="v">Mount the .151 FastForward source folder via request_cowork_directory on .151. Until then I can write specs but 151 can't ship code.</span></div>
-      <div class="field"><span class="k">Repo</span><span class="v">Target: <span class="mono">Gonzo8285/fastforward</span> · private · created in step 4 below. Will hold customer-registered code; consider transfer to a Keedwell org later.</span></div>
-      <div class="field"><span class="k">Key files</span><span class="v"><a href="file:///G:/My%20Drive/ClaudeBridge/projects/fastforward/DESIGN-SPEC.md">DESIGN-SPEC.md</a> · <a href="file:///G:/My%20Drive/ClaudeBridge/projects/fastforward/GIT-SETUP.md">GIT-SETUP.md</a> · <a href="file:///G:/My%20Drive/ClaudeBridge/HANDOFF-TO-FF151.md">HANDOFF-TO-FF151.md</a></span></div>
+      <div class="field"><span class="k">Status</span><span class="v">DESIGN-SPEC v1.1 issued 10:30Z; 151 acknowledged 10:03Z (prior version) and stands by §v1.1.1–§v1.1.11. P0.1 GUI rework <strong>blocked</strong> on source-tree access from 151's sandbox &mdash; same blocker since 11 May.</span></div>
+      <div class="field"><span class="k">Today's update</span><span class="v">Connector-pack + Open API directive landed via 151 at 13:00Z (foreground identity: <span class="mono">lynsey@jsmglasgow.co.uk</span> &mdash; <strong>identity flag raised for Paul</strong>). Scope: nine connectors (Qargo, Mandata, Convey, Roadrunner, Cargofleet, Transporeon, Aquarius, Sage, CSTime) plus M365 + Mailchimp implicit, plus FastForward's own OpenAPI 3.1 surface inside the <span class="mono">Gonzo8285/fastforward</span> repo at <span class="mono">/docs</span>. <strong>P2 work; design docs allowed in parallel; no implementation until P0.1 ships.</strong></span></div>
+      <div class="field"><span class="k">Current focus</span><span class="v">Commit #1: blue-bar overlap on Dashboard + Diary. Commits 2&ndash;4 (design tokens, four-shell refactor, side-nav regroup) ready behind it. All four still queued behind source-mount.</span></div>
+      <div class="field"><span class="k">Next action (Paul)</span><span class="v">Mount the .151 FastForward source folder via <span class="mono">request_cowork_directory</span> on .151. Until then 151 can write specs but cannot ship code.</span></div>
+      <div class="field"><span class="k">Repo</span><span class="v">Target: <span class="mono">Gonzo8285/fastforward</span> &middot; private &middot; customer-registered. Open API docs co-located.</span></div>
+      <div class="field"><span class="k">Key files</span><span class="v"><a href="file:///G:/My%20Drive/ClaudeBridge/projects/fastforward/DESIGN-SPEC.md">DESIGN-SPEC.md</a> &middot; <a href="file:///G:/My%20Drive/ClaudeBridge/projects/fastforward/GIT-SETUP.md">GIT-SETUP.md</a> &middot; <a href="file:///G:/My%20Drive/ClaudeBridge/projects/fastforward/API-CONNECTORS.md">API-CONNECTORS.md</a> &middot; <a href="file:///G:/My%20Drive/ClaudeBridge/HANDOFF-TO-FF151.md">HANDOFF-TO-FF151.md</a></span></div>
+      <div class="field"><span class="k">Scheduled tasks on .151</span><span class="v">Per 151's 13:00Z message: four ff-feat-* tasks plus an ff-heartbeat. Running &mdash; not visible from this session.</span></div>
     </div>
   </section>
 
   <section class="card project p1">
-    <h2>2. Gallowfell — The Curse of Gallowfell <span class="priority p1">P1</span> <span class="chip info">build: Claude Code</span> <span class="chip purple">plan/content: PPC</span></h2>
+    <h2>2. Gallowfell &mdash; The Curse of Gallowfell <span class="priority p1">P1</span> <span class="chip info">build: Claude Code</span> <span class="chip purple">plan/content: PPC</span></h2>
     <div class="subsection">
-      <div class="field"><span class="k">Status</span><span class="v">Pre-production. Phase 2.6–2.8 (deck depth, Warlord tiers, lore reconciliation). Phase 3 B1 done, B2 in progress. Claude Code commits on heartbeat to Gonzo8285/MobileGame.</span></div>
-      <div class="field"><span class="k">Current focus</span><span class="v">Five canonical factions locked: Iron Penitents · Ash-Mourners · Coven of the Black Mire · The Last Legion · Skinward Pact.</span></div>
-      <div class="field"><span class="k">Next action (PPC)</span><span class="v">Refresh the read-only mirror; write B2 review note + roadmap reconciliation into <span class="mono">projects/gaming-app/</span>; Claude Code's next heartbeat picks it up. <strong>No git pushes from PPC.</strong></span></div>
-      <div class="field"><span class="k">Repo</span><span class="v"><span class="mono">Gonzo8285/MobileGame</span> · public · already live · Claude Code owns commits</span></div>
+      <div class="field"><span class="k">Status</span><span class="v">Pre-production. Phase 2.6&ndash;2.8 (deck depth, Warlord tiers, lore reconciliation). Phase 3 B1 done, B2 in progress. Claude Code commits on heartbeat to <span class="mono">Gonzo8285/MobileGame</span>.</span></div>
+      <div class="field"><span class="k">Current focus</span><span class="v">Five canonical factions locked: Iron Penitents &middot; Ash-Mourners &middot; Coven of the Black Mire &middot; The Last Legion &middot; Skinward Pact.</span></div>
+      <div class="field"><span class="k">Next action (PPC)</span><span class="v">Refresh read-only mirror &middot; write B2 review note + roadmap reconciliation into <span class="mono">projects/gaming-app/</span> &middot; Claude Code's next heartbeat picks it up. <strong>No git pushes from PPC.</strong></span></div>
+      <div class="field"><span class="k">Repo</span><span class="v"><span class="mono">Gonzo8285/MobileGame</span> &middot; public &middot; Claude Code owns commits</span></div>
     </div>
   </section>
 
   <section class="card project p1">
-    <h2>3. RTK Group SharePoint <span class="priority p1">P1 (corrected — in-flight, not greenfield)</span> <span class="chip purple">owner: PPC</span></h2>
+    <h2>3. RTK Group SharePoint <span class="priority p1">P1 &middot; in-flight</span> <span class="chip purple">owner: PPC</span></h2>
     <div class="subsection">
-      <div class="field"><span class="k">Status</span><span class="v">16 sites provisioned on <span class="mono">jaystransportcouk.sharepoint.com</span>. Brand palettes locked. Nav setup script written but not applied. SDP→SharePoint trigger wiring stuck on the actions schema. NAS Cloud Sync configured. Power BI data model exists. Access-DB migration plan drafted (30+ DBs). File clutter from repeat scheduled-task reports — needs cleanup script.</span></div>
-      <div class="field"><span class="k">Sites</span><span class="v">RTK Group hub + Finance + Customer Service + 3 depots · R.T. Keedwell Ltd (4 depots) · Jays Transport (1 hub + 2 depots) · Keedwell Scotland (1 hub + 2 depots) = 16 total. All <em>"Provisioned — nav pending"</em>.</span></div>
-      <div class="field"><span class="k">Next action</span><span class="v">(1) Cleanup script archives dated reports. (2) Push the Sharepoint folder content to <span class="mono">Gonzo8285/rtk-sharepoint</span>. (3) Pick up SDP integration — try POST /api/v3/wfactions first then attach via wftrigger (per existing notes).</span></div>
-      <div class="field"><span class="k">Repo</span><span class="v">Target: <span class="mono">Gonzo8285/rtk-sharepoint</span> · private</span></div>
-      <div class="field"><span class="k">Key files</span><span class="v">RTK_SiteInventory.md · RTK_BrandGuide.md · RTK_Branding_PnP.ps1 · RTK_NavAndPages_Setup.js · RTK_PowerBI_DataModel.xlsx · RTK_Access_Migration_Strategy.docx · RTK_Dashboard_Design_Spec.docx · RTK_ServiceDesk_SharePoint_Integration.docx</span></div>
+      <div class="field"><span class="k">Status</span><span class="v">16 sites provisioned on <span class="mono">jaystransportcouk.sharepoint.com</span>. Brand palettes locked. Nav setup script written but not applied. SDP&rarr;SharePoint trigger wiring stuck on the actions schema. NAS Cloud Sync configured. Power BI data model exists. Access-DB migration plan drafted (30+ DBs). File clutter from repeat scheduled-task reports &mdash; needs cleanup script.</span></div>
+      <div class="field"><span class="k">Sites</span><span class="v">RTK Group hub + Finance + Customer Service + 3 depots &middot; R.T. Keedwell Ltd (4 depots) &middot; Jays Transport (1 hub + 2 depots) &middot; Keedwell Scotland (1 hub + 2 depots) = 16 total. All <em>"Provisioned &mdash; nav pending"</em>.</span></div>
+      <div class="field"><span class="k">Next action</span><span class="v">(1) Cleanup script archives dated reports. (2) Push the Sharepoint folder content to <span class="mono">Gonzo8285/rtk-sharepoint</span>. (3) Pick up SDP integration &mdash; try POST /api/v3/wfactions first then attach via wftrigger (per existing notes).</span></div>
+      <div class="field"><span class="k">Repo</span><span class="v">Target: <span class="mono">Gonzo8285/rtk-sharepoint</span> &middot; private</span></div>
     </div>
   </section>
 
   <section class="card project p2">
-    <h2>4. ML2 Consulting <span class="priority p2">P2 (corrected — site exists)</span> <span class="chip purple">owner: PPC · personal brand</span></h2>
+    <h2>4. ML2 Consulting <span class="priority p2">P2 &middot; site exists</span> <span class="chip purple">owner: PPC &middot; personal brand</span></h2>
     <div class="subsection">
       <div class="field"><span class="k">Status</span><span class="v">Static website built: index/services/about/contact + style.css + script.js. README documents IONOS FTP deploy and Formspree wiring. Not yet deployed.</span></div>
-      <div class="field"><sp
+      <div class="field"><span class="k">Next action</span><span class="v">Deploy via IONOS FTP (creds from Paul). Switch contact form to Formspree endpoint. Push source to <span class="mono">Gonzo8285/ml2-consulting-website</span>.</span></div>
+      <div class="field"><span class="k">Repo</span><span class="v">Target: <span class="mono">Gonzo8285/ml2-consulting-website</span> &middot; private</span></div>
+    </div>
+  </section>
+
+  <section class="card project p3">
+    <h2>5. Dropship <span class="priority p3">P3 &middot; chip-away</span> <span class="chip purple">owner: PPC &middot; personal</span></h2>
+    <div class="subsection">
+      <div class="field"><span class="k">Status</span><span class="v">Personal project. Scope TBD. No files yet on the bridge.</span></div>
+      <div class="field"><span class="k">Next action</span><span class="v">Paul to drop a one-liner of intent so PPC can put a workstream sketch on the bridge.</span></div>
+    </div>
+  </section>
+
+  <section class="card project p3">
+    <h2>6. Hollow Kin <span class="priority p3">P3 &middot; creative</span> <span class="chip purple">owner: PPC</span></h2>
+    <div class="subsection">
+      <div class="field"><span class="k">Status</span><span class="v">Warhammer fan codex with a 3D viewer prototype. Newly visible to memory on 2026-05-12 access pass.</span></div>
+      <div class="field"><span class="k">Next action</span><span class="v">Locate working tree; classify as "shippable artifact" vs "personal sandbox" &mdash; affects whether it gets a Gonzo8285 repo.</span></div>
+    </div>
+  </section>
+
+  <section class="card project p3">
+    <h2>7. Nestwell <span class="priority p3">P3 &middot; sandbox</span> <span class="chip purple">owner: PPC</span></h2>
+    <div class="subsection">
+      <div class="field"><span class="k">Status</span><span class="v">Stocks/trading prototype. Scope TBD. Newly visible to memory on 2026-05-12 access pass.</span></div>
+      <div class="field"><span class="k">Next action</span><span class="v">Same as Hollow Kin: classify before repo creation.</span></div>
+    </div>
+  </section>
+
+  <section class="card project p3">
+    <h2>8. Rate cards &middot; Bedding <span class="priority p3">P3 &middot; operational data</span></h2>
+    <div class="subsection">
+      <div class="field"><span class="k">Status</span><span class="v">Operational data artefacts &mdash; likely FastForward-adjacent (rate cards = transport-pricing data; bedding = unclear, possibly haulage-bedding workflow). Newly visible 2026-05-12.</span></div>
+      <div class="field"><span class="k">Next action</span><span class="v">Classify: if FastForward-adjacent, fold into the connector design as seed data; if standalone, give them their own sketch.</span></div>
+    </div>
+  </section>
+
+  <section class="card project p2">
+    <h2>9. ClaudeBridge <span class="priority p2">P2 &middot; spine</span> <span class="chip purple">joint: ff-151 + PPC</span></h2>
+    <div class="subsection">
+      <div class="field"><span class="k">Status</span><span class="v">Running. §7 four-task schedule symmetric on both sides (paul-pc + ff-151) confirmed 2026-05-12. Eight inbound from ff-151 processed today; three outbound from paul-pc.</span></div>
+      <div class="field"><span class="k">Open issues</span><span class="v"><strong>Drive-sync deletion gap</strong> &mdash; symmetric on both sides: bash sees folders as empty even when files are present, so neither instance can <span class="mono">mv</span> originals to archive. Workaround: write archive copies, leave originals; Paul resolves via Windows Explorer or the Drive client re-sync. Documented in <span class="mono">comms/from-151/2026-05-11T190600Z_ff-151_drive-sync-symmetric</span>.</span></div>
+      <div class="field"><span class="k">Health signals</span><span class="v"><span class="chip success">polling live</span> <span class="chip success">archive write OK</span> <span class="chip warning">delete blocked</span> <span class="chip info">dedup short-circuit working</span></span></div>
+      <div class="field"><span class="k">Repo</span><span class="v">Target: <span class="mono">Gonzo8285/claudebridge</span> &middot; private &middot; for specs + comms history. This dashboard at: <span class="mono">Gonzo8285/claudebridge-dashboard</span> &middot; public Pages site.</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Open questions for Paul <span class="badge">unblock asks</span></h2>
+    <table>
+      <thead><tr><th>#</th><th>Question</th><th>Blocks</th></tr></thead>
+      <tbody>
+        <tr><td>Q1</td><td>Is <span class="mono">lynsey@jsmglasgow.co.uk</span> authorised to issue bridge-level directives, or only product-side directives (with PPC co-sign required for bridge changes)?</td><td>Future ff-151 directive handling. Today's directive accepted under "consistent-with-known-priorities" rule.</td></tr>
+        <tr><td>Q2</td><td>Can you mount the .151 FastForward source folder via <span class="mono">request_cowork_directory</span> on the .151 Cowork session so ff-151 can finally start the GUI commit chain?</td><td>P0.1 (commits 1&ndash;4). Has been blocked since 2026-05-11.</td></tr>
+        <tr><td>Q3</td><td>Which connector providers do RTK / the customer already hold credentials or partner-access for? (Sage, M365 highly likely; first TMS pick uncertain.)</td><td>API-CONNECTORS.md per-connector "sandbox available" column.</td></tr>
+        <tr><td>Q4</td><td>Confirm: dashboard's permanent cloud URL is <span class="mono">https://gonzo8285.github.io/claudebridge-dashboard/</span>? Or do you want it on a custom domain?</td><td>Desktop shortcut, status-post bookmarks.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>How the workload is rationalised <span class="badge">scheduled-tasks pulse layout</span></h2>
+    <table>
+      <thead><tr><th>Pulse</th><th>What it covers</th><th>Cadence</th><th>Replaces</th></tr></thead>
+      <tbody>
+        <tr><td><span class="mono">claudebridge-poll</span></td><td>Inbox from ff-151 &middot; archive &middot; reply when needed</td><td>every 2 min</td><td>&mdash; (always-on bridge)</td></tr>
+        <tr><td><span class="mono">claudebridge-status-morning</span></td><td>paul-pc status snapshot &middot; controller heartbeat</td><td>10:00 UK daily</td><td>&mdash;</td></tr>
+        <tr><td><span class="mono">claudebridge-status-evening</span></td><td>End-of-day digest &middot; tomorrow's queue</td><td>18:00 UK daily</td><td>&mdash;</td></tr>
+        <tr><td><span class="mono">claudebridge-weekly-review</span></td><td>Friday wrap &middot; cross-project</td><td>Fri 18:30 UK</td><td>&mdash;</td></tr>
+        <tr><td><span class="mono">pulse-build</span></td><td>FastForward + SharePoint review prompts &middot; PPC-side</td><td>Mon/Wed/Fri 18:00 UK</td><td>2 old per-project tasks</td></tr>
+        <tr><td><span class="mono">pulse-gamedev</span></td><td>Gallowfell mirror refresh &middot; B2 review notes</td><td>every 4 hours</td><td>1 old game heartbeat</td></tr>
+        <tr><td><span class="mono">pulse-housekeep</span></td><td>Memory consolidation &middot; status hygiene &middot; archive checks</td><td>daily 22:00 UK</td><td>2 old housekeeping tasks</td></tr>
+      </tbody>
+    </table>
+    <p class="lede" style="margin-top:12px">Seven pulses total. Three of them (<span class="mono">pulse-build</span>, <span class="mono">pulse-gamedev</span>, <span class="mono">pulse-housekeep</span>) replace five older single-purpose tasks. Four bridge tasks remain dedicated because the bridge is the spine.</p>
+  </section>
+
+  <footer style="text-align:center;color:var(--ff-text-subtle);font-size:12px;padding:24px 0">
+    Generated by paul-pc (Cowork) &middot; pulls state from <span class="mono">G:\My Drive\ClaudeBridge\</span> &middot; refreshed on demand &middot; v0.2 2026-05-12
+  </footer>
+
+</main>
+</body>
+</html>

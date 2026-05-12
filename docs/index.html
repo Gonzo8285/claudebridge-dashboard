@@ -88,12 +88,12 @@
 <body>
 <header class="app">
   <div class="brand">Portfolio Control Centre &middot; paul-pc</div>
-  <div class="meta">refreshed 2026-05-12T15:30Z &middot; v0.2</div>
+  <div class="meta">refreshed 2026-05-12T15:45Z &middot; v0.3</div>
 </header>
 <main>
 
   <h1>Where everything stands today</h1>
-  <p class="lede">PPC's single page of the truth. Refreshed mid-afternoon UK on 2026-05-12 after the bridge processed ff-151's portfolio + connectors directive and the symmetric portfolio-connectors-noted ack. Cloud-hosted from <span class="mono">Gonzo8285/claudebridge-dashboard</span>; mirrors <span class="mono">G:\My Drive\ClaudeBridge\dashboard\index.html</span>.</p>
+  <p class="lede">PPC's single page of the truth. Refreshed late-afternoon UK on 2026-05-12. Bridge inbox clear; FastForward initial source snapshot committed (commit <span class="mono">57b20df</span>); Lynsey identity question resolved via manifest §0. Cloud-hosted from <span class="mono">Gonzo8285/claudebridge-dashboard</span>; mirrors <span class="mono">G:\My Drive\ClaudeBridge\dashboard\index.html</span>.</p>
 
   <section class="card">
     <h2>Pulse <span class="badge">live state · 2026-05-12T15:30Z</span></h2>
@@ -101,7 +101,7 @@
       <div class="kpi"><span class="label">Workstreams</span><span class="num">9</span><span class="sub">priority spine intact</span></div>
       <div class="kpi"><span class="label">Bridge inbox (from-151)</span><span class="num">8</span><span class="sub">all archived &middot; originals zombie on drive-sync gap</span></div>
       <div class="kpi"><span class="label">Bridge outbox (from-paul-pc)</span><span class="num">3</span><span class="sub">latest: portfolio-connectors-ack 14:30Z</span></div>
-      <div class="kpi"><span class="label">P0.1 (GUI fix)</span><span class="num">BLOCKED</span><span class="sub">on .151 source-tree mount</span></div>
+      <div class="kpi"><span class="label">P0.1 (GUI fix)</span><span class="num">IN FLIGHT</span><span class="sub">source = live Netlify HTML; snapshot committed</span></div>
     </div>
   </section>
 
@@ -112,6 +112,7 @@
     <div class="timeline"><span class="t">11:45Z</span><span class="e"><span class="chip purple">paul-pc → ff-151</span> <span class="mono">ack-v1-1-and-controller-promotion</span> &mdash; PPC controller promotion confirmed both sides.</span></div>
     <div class="timeline"><span class="t">13:00Z</span><span class="e"><span class="chip info">ff-151 → paul-pc</span> <span class="mono">portfolio-and-connectors-directive</span> &mdash; new directive from foreground session signed in as <em>[external-foreground-identity redacted]</em>; §7 schedule confirmed live; PROJECTS-AND-RESOURCES + API-CONNECTORS docs landing.</span></div>
     <div class="timeline"><span class="t">14:30Z</span><span class="e"><span class="chip purple">paul-pc → ff-151</span> <span class="mono">portfolio-connectors-ack</span> &mdash; translation accepted; <strong>identity flag</strong> raised on Lynsey; parallelism caveat (no implementation until P0.1 ships); PPC-side workstream detail supplied for the manifest; Open API stays inside <span class="mono">Gonzo8285/fastforward</span>.</span></div>
+    <div class="timeline"><span class="t">13:26Z</span><span class="e"><span class="chip success">PPC &rarr; Git</span> FastForward initial source snapshot committed to <span class="mono">Gonzo8285/fastforward</span> (commit <span class="mono">57b20df</span>, index.html 84.7&nbsp;KB).</span></div>
     <div class="timeline"><span class="t">15:00Z</span><span class="e"><span class="chip info">ff-151 → paul-pc</span> <span class="mono">portfolio-connectors-noted</span> &mdash; guardrails accepted; one flag back on a TypeScript Connector sketch in API-CONNECTORS §1.</span></div>
   </section>
 
@@ -123,7 +124,8 @@
         <tr><td>1</td><td>Refresh this dashboard with mid-afternoon state</td><td class="mono">dashboard/index.html (v0.2)</td><td><span class="chip success">done</span></td></tr>
         <tr><td>2</td><td>Reply to 151's gui-priority-v1-1-ack + archive inbound</td><td class="mono">comms/from-paul-pc/ + comms/archive/</td><td><span class="chip success">done</span></td></tr>
         <tr><td>3</td><td>Reply to 151's portfolio-and-connectors-directive (Lynsey flag, parallelism, PPC workstream detail)</td><td class="mono">comms/from-paul-pc/2026-05-12T143000Z_paul-pc_portfolio-connectors-ack.md</td><td><span class="chip success">done</span></td></tr>
-        <tr><td>4</td><td>Push dashboard to <span class="mono">Gonzo8285/claudebridge-dashboard</span> &middot; enable Pages</td><td>Cloud URL (Pages-hosted)</td><td><span class="chip info">in progress</span></td></tr>
+        <tr><td>4</td><td>Push dashboard to <span class="mono">Gonzo8285/claudebridge-dashboard</span> &middot; enable Pages</td><td><a href="https://gonzo8285.github.io/claudebridge-dashboard/">gonzo8285.github.io/claudebridge-dashboard</a></td><td><span class="chip success">done</span></td></tr>
+        <tr><td>4b</td><td>Commit initial FastForward source snapshot to <span class="mono">Gonzo8285/fastforward</span></td><td>commit <span class="mono">57b20df</span> &middot; index.html 84.7KB &middot; SNAPSHOT-NOTES.md</td><td><span class="chip success">done</span></td></tr>
         <tr><td>5</td><td>Refresh paul-pc status snapshot for today</td><td class="mono">shared/status/paul-pc.md</td><td><span class="chip info">next</span></td></tr>
         <tr><td>6</td><td>Bootstrap remaining GitHub repos: claudebridge (specs/comms), fastforward, rtk-sharepoint, ml2-consulting-website</td><td>Gonzo8285/* &middot; private &middot; README + .gitignore</td><td><span class="chip info">queued</span></td></tr>
         <tr><td>7</td><td>Write SharePoint cleanup .ps1 (archive dated reports, not delete)</td><td class="mono">Projects/Sharepoint/RTK_Cleanup_Archive_Reports.ps1</td><td><span class="chip info">queued</span></td></tr>
@@ -143,7 +145,7 @@
         <div class="rank">1 &middot; highest priority</div>
         <div class="value">FastForward</div>
         <div class="sub">build: ff-151 &middot; design/review: PPC</div>
-        <div style="margin-top:8px"><span class="chip danger">P0.1 GUI</span> <span class="chip warning">source-mount blocker</span> <span class="chip info">connector pack scoped</span></div>
+        <div style="margin-top:8px"><span class="chip warning">P0.1 GUI</span> <span class="chip success">snapshot committed</span> <span class="chip info">connector pack scoped</span></div>
       </div>
       <div class="tile proj p1">
         <div class="rank">2 &middot; primary resource use</div>
@@ -199,10 +201,10 @@
   <section class="card project p0">
     <h2>1. FastForward <span class="priority p0">P0</span> <span class="chip info">build: ff-151</span> <span class="chip purple">design/review: PPC</span></h2>
     <div class="subsection">
-      <div class="field"><span class="k">Status</span><span class="v">DESIGN-SPEC v1.1 issued 10:30Z; 151 acknowledged 10:03Z (prior version) and stands by §v1.1.1–§v1.1.11. P0.1 GUI rework <strong>blocked</strong> on source-tree access from 151's sandbox &mdash; same blocker since 11 May.</span></div>
-      <div class="field"><span class="k">Today's update</span><span class="v">Connector-pack + Open API directive landed via 151 at 13:00Z (foreground identity: <span class="mono">[external-foreground-identity redacted]</span> &mdash; <strong>identity flag raised for Paul</strong>). Scope: nine connectors (Qargo, Mandata, Convey, Roadrunner, Cargofleet, Transporeon, Aquarius, Sage, CSTime) plus M365 + Mailchimp implicit, plus FastForward's own OpenAPI 3.1 surface inside the <span class="mono">Gonzo8285/fastforward</span> repo at <span class="mono">/docs</span>. <strong>P2 work; design docs allowed in parallel; no implementation until P0.1 ships.</strong></span></div>
-      <div class="field"><span class="k">Current focus</span><span class="v">Commit #1: blue-bar overlap on Dashboard + Diary. Commits 2&ndash;4 (design tokens, four-shell refactor, side-nav regroup) ready behind it. All four still queued behind source-mount.</span></div>
-      <div class="field"><span class="k">Next action (Paul)</span><span class="v">Mount the .151 FastForward source folder via <span class="mono">request_cowork_directory</span> on .151. Until then 151 can write specs but cannot ship code.</span></div>
+      <div class="field"><span class="k">Status</span><span class="v">DESIGN-SPEC v1.1 issued 10:30Z; 151 stands by &sect;v1.1.1&ndash;&sect;v1.1.11. P0.1 GUI rework <strong>in flight</strong> &mdash; per manifest &sect;2.1, FastForward is a Netlify-hosted SPA edited via the Netlify API by ff-151's <span class="mono">ff-feat-*</span> hourly tasks. The earlier "source-mount blocker" framing was incorrect; there is no traditional source tree.</span></div>
+      <div class="field"><span class="k">Today's update</span><span class="v">Connector-pack + Open API directive landed via 151 at 13:00Z (foreground identity: <span class="mono">[external-foreground-identity redacted]</span> &mdash; JSM Glasgow stakeholder, customer of record per manifest &sect;0). Scope: nine connectors (Qargo, Mandata, Convey, Roadrunner, Cargofleet, Transporeon, Aquarius, Sage, CSTime) plus M365 + Mailchimp implicit, plus FastForward's own OpenAPI 3.1 surface inside the <span class="mono">Gonzo8285/fastforward</span> repo at <span class="mono">/docs</span>. <strong>P2 work; design docs allowed in parallel; no implementation until P0.1 ships.</strong></span></div>
+      <div class="field"><span class="k">Current focus</span><span class="v">Commit #1: blue-bar overlap on Dashboard + Diary. Commits 2&ndash;4 (design tokens, four-shell refactor, side-nav regroup) queued behind it. ff-151 ships via Netlify API as soon as the v1.1.8 commits are coded.</span></div>
+      <div class="field"><span class="k">Next action</span><span class="v">ff-151 to commit each post-deploy HTML to <span class="mono">Gonzo8285/fastforward</span> after the <span class="mono">ff-feat-*</span> tasks run. PPC committed the initial Netlify snapshot 2026-05-12T13:26Z (commit <span class="mono">57b20df</span>) &mdash; diff timeline starts there.</span></div>
       <div class="field"><span class="k">Repo</span><span class="v">Target: <span class="mono">Gonzo8285/fastforward</span> &middot; private &middot; customer-registered. Open API docs co-located.</span></div>
       <div class="field"><span class="k">Key files</span><span class="v"><a href="file:///G:/My%20Drive/ClaudeBridge/projects/fastforward/DESIGN-SPEC.md">DESIGN-SPEC.md</a> &middot; <a href="file:///G:/My%20Drive/ClaudeBridge/projects/fastforward/GIT-SETUP.md">GIT-SETUP.md</a> &middot; <a href="file:///G:/My%20Drive/ClaudeBridge/projects/fastforward/API-CONNECTORS.md">API-CONNECTORS.md</a> &middot; <a href="file:///G:/My%20Drive/ClaudeBridge/HANDOFF-TO-FF151.md">HANDOFF-TO-FF151.md</a></span></div>
       <div class="field"><span class="k">Scheduled tasks on .151</span><span class="v">Per 151's 13:00Z message: four ff-feat-* tasks plus an ff-heartbeat. Running &mdash; not visible from this session.</span></div>
@@ -285,10 +287,10 @@
     <table>
       <thead><tr><th>#</th><th>Question</th><th>Blocks</th></tr></thead>
       <tbody>
-        <tr><td>Q1</td><td>Is <span class="mono">[external-foreground-identity redacted]</span> authorised to issue bridge-level directives, or only product-side directives (with PPC co-sign required for bridge changes)?</td><td>Future ff-151 directive handling. Today's directive accepted under "consistent-with-known-priorities" rule.</td></tr>
-        <tr><td>Q2</td><td>Can you mount the .151 FastForward source folder via <span class="mono">request_cowork_directory</span> on the .151 Cowork session so ff-151 can finally start the GUI commit chain?</td><td>P0.1 (commits 1&ndash;4). Has been blocked since 2026-05-11.</td></tr>
-        <tr><td>Q3</td><td>Which connector providers do RTK / the customer already hold credentials or partner-access for? (Sage, M365 highly likely; first TMS pick uncertain.)</td><td>API-CONNECTORS.md per-connector "sandbox available" column.</td></tr>
-        <tr><td>Q4</td><td>Confirm: dashboard's permanent cloud URL is <span class="mono">https://gonzo8285.github.io/claudebridge-dashboard/</span>? Or do you want it on a custom domain?</td><td>Desktop shortcut, status-post bookmarks.</td></tr>
+        
+        <tr><td>Q1</td><td>Which connector providers do RTK / the customer already hold credentials or partner-access for? (Sage, M365 highly likely; first TMS pick uncertain.)</td><td>API-CONNECTORS.md per-connector "sandbox available" column.</td></tr>
+        
+        <tr><td>Q2</td><td>Confirm: dashboard's permanent cloud URL is <span class="mono">https://gonzo8285.github.io/claudebridge-dashboard/</span>? Or do you want it on a custom domain?</td><td>Desktop shortcut, status-post bookmarks.</td></tr>
       </tbody>
     </table>
   </section>
